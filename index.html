@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa con 3 departamentos independientes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="property-info">
+                <h1>Casa con 3 Departamentos Independientes</h1>
+            </div>
+            <!-- 
+            <ul class="nav-menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Propiedades</a></li>
+                <li><a href="#">Agentes</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+            -->
+
+        </div>
+    </header>
+
+
+
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Property Gallery -->
+        <section class="property-gallery">
+            <div class="main-image">
+                <img src="imagenes/foto1.jpeg" alt="Casa - Frente" id="main-img">
+            </div>
+            <div class="thumbnail-container">
+                <div class="thumbnail" onclick="changeImage('imagenes/foto1.jpeg')">
+                    <img src="imagenes/foto1.jpeg" alt="Frente">
+                </div>
+                <div class="thumbnail" onclick="changeImage('imagenes/foto2.jpeg')">
+                    <img src="imagenes/foto2.jpeg" alt="Frente">
+                </div>
+                <div class="thumbnail" onclick="changeImage('imagenes/foto3.jpeg')">
+                    <img src="imagenes/foto3.jpeg" alt="Frente">
+                </div>
+                <div class="thumbnail" onclick="changeImage('imagenes/foto4.jpeg')">
+                    <img src="imagenes/foto4.jpeg" alt="Frente">
+                </div>
+            </div>
+        </section>
+
+        <!-- Property Details -->
+        <section class="property-details">
+            <div class="property-info">
+                <h1>Departamento cerca de la Parada de Metro Cardenal de la Torre</h1>
+                <p class="location">Quito, Ecuador</p>
+                <p class="price">$85,000</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <div class="feature-value">3</div>
+                        <div class="feature-name">Departamentos</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-value">190 m²</div>
+                        <div class="feature-name">Terreno</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-value">170 m²</div>
+                        <div class="feature-name">Construcción</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-value">2</div>
+                        <div class="feature-name">Parqueadero</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-value">2</div>
+                        <div class="feature-name">Plantas</div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-value">30 años</div>
+                        <div class="feature-name">Antigüedad</div>
+                    </div>
+                </div>
+                
+                <div class="description">
+                    <h3>Descripción</h3>
+                    <p>Hermosa casa cerca de la Parada de Metro Cardenal de la Torre, con amplios espacios.   La propiedad cuenta con 3 departamentos independientes de 3-2-1 dormitorios, claridad, área de lavandería, patio grande y parqueadero para dos carros.</p>
+                    <p>Ubicación privilegiada cerca del centro comerciales, colegios, hospitales y vías principales de acceso.</p>
+                </div>
+                
+                <div class="amenities">
+                    <h3>Características</h3>
+                    <ul>
+                        <li>Pisos de cerámica</li>
+                        <li>Departamentos con claridad</li>
+                        <li>Patio grande</li>
+                        <li>Proyección para un tercer piso</li>
+                        <li>Área de lavandería</li>
+                        <li>Parqueadero para 2 carros</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h3>¿Interesado en esta propiedad?</h3>
+                <p></p>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio que ofreces</label>
+                        <input type="number" id="precio" name="precio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">WhatsApp</label>
+                        <input type="tel" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tienes alguna pregunta</label>
+                        <textarea id="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Enviar consulta</button>
+                </form>
+                
+                
+                <div class="contact-info">
+                    <p>O llámenos al:</p>
+                    <p style="font-size: 18px; font-weight: bold;">098 725 9001</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location-section">
+            <h2>Ubicación de la Propiedad</h2>
+            <div class="location-content">
+                <div class="map-container">
+                    <div id="property-map"></div>
+                </div>
+                <div class="address-info">
+                    <h3>Dirección Exacta</h3>
+                    <div class="address-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Andrés Hurtado S13-101 y Vicente Reyes</p>
+                        <p><i class="fas fa-city"></i> Quito, Ecuador</p>
+                        <p><i class="fas fa-compass"></i> Sector: Sur de Quito</p>
+                        <p><i class="fas fa-shield-alt"></i> Zona residencial</p>
+                    </div>
+                    <h3>¿Cómo llegar?</h3>
+                    <div class="directions-buttons">
+                        <button class="dir-btn" onclick="openGoogleMaps()">
+                            <i class="fab fa-google"></i> Google Maps
+                        </button>
+                        <button class="dir-btn" onclick="openWaze()">
+                            <i class="fab fa-waze"></i> Waze
+                        </button>
+                        <button class="dir-btn" onclick="copyAddress()">
+                            <i class="fas fa-copy"></i> Copiar Dirección
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- WhatsApp & Call Buttons -->
+    <div class="float-buttons">
+        <div class="whatsapp-button" onclick="openWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+            <span class="button-tooltip">Contactar por WhatsApp</span>
+        </div>
+        <div class="call-button pulse" onclick="makeCall()">
+            <i class="fas fa-phone"></i>
+            <span class="button-tooltip">Llamar ahora</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>RE/MAX Ecuador</h3>
+                    <p>La red de bienes raíces más grande de Ecuador con años de experiencia en el mercado.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="#">Propiedades en venta</a></li>
+                        <li><a href="#">Propiedades en alquiler</a></li>
+                        <li><a href="#">Agentes</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Ciudades</h3>
+                    <ul>
+                        <li><a href="#">Quito</a></li>
+                        <li><a href="#">Guayaquil</a></li>
+                        <li><a href="#">Cuenca</a></li>
+                        <li><a href="#">Manta</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>Av. República 123 y Amazonas</p>
+                    <p>Quito, Ecuador</p>
+                    <p>Email: info@remax.com.ec</p>
+                    <p>Teléfono: (02) 123-4567</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 RE/MAX Ecuador. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Simple form validation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            if (name && email) {
+                alert('¡Gracias por su interés! Un asesor se comunicará con usted pronto.');
+                this.reset();
+            } else {
+                alert('Por favor, complete los campos obligatorios.');
+            }
+        });
+
+        // Function to change the main image when clicking on thumbnails
+        function changeImage(src) {
+            document.getElementById('main-img').src = src;
+        }
+
+        // WhatsApp function
+        function openWhatsApp() {
+            const propertyName = "Departamento en Urbanización El Condado - 3 Dormitorios";
+            const propertyPrice = "$185,000";
+            const propertyURL = window.location.href;
+            
+            // Message with property details
+            const message = `Hola, estoy interesado en la propiedad: ${propertyName} por ${propertyPrice}. Más información: ${propertyURL}`;
+            
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Open WhatsApp with the message
+            window.open(`https://wa.me/593987654321?text=${encodedMessage}`, '_blank');
+        }
+
+        // Call function
+        function makeCall() {
+            // Confirm before calling
+            if (confirm('¿Desea llamar al agente de RE/MAX?')) {
+                // Open phone dialer with the number
+                window.location.href = 'tel:+59321234567';
+            }
+        }
+
+        // Initialize map
+        function initMap() {
+            // Coordinates for Andrés Hurtado S13-101 y Vicente Reyes, Quito (approximate)
+            const propertyLocation = [-0.180653, -78.467834];
+            
+            // Create map
+            const map = L.map('property-map').setView(propertyLocation, 15);
+            
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            
+            // Add marker
+            const marker = L.marker(propertyLocation).addTo(map);
+            marker.bindPopup("<b>Departamento en Venta</b><br>Andrés Hurtado S13-101 y Vicente Reyes").openPopup();
+            
+            // Add circle to indicate area
+            L.circle(propertyLocation, {
+                color: '#0038a7',
+                fillColor: '#0038a7',
+                fillOpacity: 0.2,
+                radius: 200
+            }).addTo(map);
+        }
+
+        // Initialize map when page loads
+        window.onload = function() {
+            initMap();
+        };
+
+        // Open Google Maps with directions
+        function openGoogleMaps() {
+            const address = "Andrés Hurtado S13-101 y Vicente Reyes, Quito, Ecuador";
+            const encodedAddress = encodeURIComponent(address);
+            window.open(`https://www.google.com/maps/dir/?api=1&destination=${encodedAddress}`, '_blank');
+        }
+
+        // Open Waze with directions
+        function openWaze() {
+            const address = "Andrés Hurtado S13-101 y Vicente Reyes, Quito, Ecuador";
+            const encodedAddress = encodeURIComponent(address);
+            window.open(`https://www.waze.com/ul?q=${encodedAddress}&navigate=yes`, '_blank');
+        }
+
+        // Copy address to clipboard
+        function copyAddress() {
+            const address = "Andrés Hurtado S13-101 y Vicente Reyes, Quito, Ecuador";
+            navigator.clipboard.writeText(address).then(function() {
+                alert('Dirección copiada al portapapeles: ' + address);
+            }, function() {
+                // Fallback for older browsers
+                const textArea = document.createElement("textarea");
+                textArea.value = address;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textArea);
+                alert('Dirección copiada al portapapeles: ' + address);
+            });
+        }
+    </script>
+</body>
+</html>
