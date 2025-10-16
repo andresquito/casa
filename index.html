@@ -59,9 +59,9 @@
         <!-- Property Details -->
         <section class="property-details">
             <div class="property-info">
-                <h1>Departamento cerca de la Parada de Metro Cardenal de la Torre</h1>
+                <h1>Cerca de la Parada de Metro Cardenal de la Torre</h1>
                 <p class="location">Quito, Ecuador</p>
-                <p class="price">$85,000</p>
+                <p class="price">$92,000</p>
                 
                 <div class="features">
                     <div class="feature">
@@ -108,8 +108,9 @@
                     </ul>
                 </div>
             </div>
-            
-            <div class="contact-form">
+
+            <!-- 
+                        <div class="contact-form">
                 <h3>¿Interesado en esta propiedad?</h3>
                 <p></p>
                 <form>
@@ -138,6 +139,10 @@
                     <p style="font-size: 18px; font-weight: bold;">098 725 9001</p>
                 </div>
             </div>
+            -->
+
+            
+
         </section>
 
         <!-- Location Section -->
@@ -178,15 +183,23 @@
             <i class="fab fa-whatsapp"></i>
             <span class="button-tooltip">Contactar por WhatsApp</span>
         </div>
-        <div class="call-button pulse" onclick="makeCall()">
+
+        <!-- 
+                <div class="call-button pulse" onclick="makeCall()">
             <i class="fas fa-phone"></i>
             <span class="button-tooltip">Llamar ahora</span>
         </div>
+        -->
+
+
+
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
+
+            <!-- 
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>RE/MAX Ecuador</h3>
@@ -220,10 +233,15 @@
                     <p>Email: info@remax.com.ec</p>
                     <p>Teléfono: (02) 123-4567</p>
                 </div>
-            </div>
+            </div>            
+            -->
+
+
+
+
             
             <div class="copyright">
-                <p>&copy; 2023 RE/MAX Ecuador. Todos los derechos reservados.</p>
+                <p>&copy; 2025 Quito - Ecuador. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -252,18 +270,18 @@
 
         // WhatsApp function
         function openWhatsApp() {
-            const propertyName = "Departamento en Urbanización El Condado - 3 Dormitorios";
-            const propertyPrice = "$185,000";
+            const propertyName = "Casa con 3 Departamentos Independientes";
+            const propertyPrice = "$92,000";
             const propertyURL = window.location.href;
             
             // Message with property details
-            const message = `Hola, estoy interesado en la propiedad: ${propertyName} por ${propertyPrice}. Más información: ${propertyURL}`;
+            const message = `Hola, estoy interesado en la propiedad: ${propertyName} por ${propertyPrice}`;
             
             // Encode the message for URL
             const encodedMessage = encodeURIComponent(message);
             
             // Open WhatsApp with the message
-            window.open(`https://wa.me/593987654321?text=${encodedMessage}`, '_blank');
+            window.open(`https://wa.me/593987259001?text=${encodedMessage}`, '_blank');
         }
 
         // Call function
@@ -271,7 +289,7 @@
             // Confirm before calling
             if (confirm('¿Desea llamar al agente de RE/MAX?')) {
                 // Open phone dialer with the number
-                window.location.href = 'tel:+59321234567';
+                window.location.href = 'tel:+593987259001';
             }
         }
 
